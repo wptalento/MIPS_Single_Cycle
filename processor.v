@@ -59,7 +59,6 @@ module processor(
 	assign rd = inst[15:11];
 	
 	// register write destination mux
-
 	mux5 mux_writeregdest(rd, rt, 5'b11111, 5'd0, Reg_Write_Dest_Source, writereg);
 	
 	// ALU IO
@@ -92,7 +91,6 @@ module processor(
 	assign jumpaddr = {inst[31:28], inst[25:0], 2'b00};
 	
 	mux32 mux_nextPC(inst_addr + 4, inst_addr + 4 + shifted_sign_extended, readdata1, jumpaddr, PC_Src, PC);
-	
 
 	// controller
 	controller controller(inst, zero, Reg_Write_Dest_Source, ALU_A_Source, ALU_B_Source, ALU_Control, PC_Src, Reg_Write_Data_Source, Reg_Write, Mem_Write, extend_bit);
@@ -106,7 +104,6 @@ module processor(
 	ALU ALU(ALU_A, ALU_B, ALU_Control, shamt, ALU_Output, zero);
 
 	// register write data mux
-
 	mux32 mux_writeregdata(data_in, {24'b0, data_in[31:24]}, inst_addr + 4, ALU_Output, Reg_Write_Data_Source, writedata);
 	
 	// processor IO	

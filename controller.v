@@ -39,7 +39,6 @@ module controller(
 	wire b_type;
 	wire j_type, jump, jal, jr;
 	
-	
 	assign lw 		= inst[31] & ~inst[30] & ~inst[29] & ~inst[28] & inst[27] & inst[26];
 	assign lb 		= inst[31] & ~inst[30] & ~inst[29] & ~inst[28] & ~inst[27] & ~inst[26];
 	assign l_type 	= lw | lb;
