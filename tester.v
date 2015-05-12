@@ -72,7 +72,7 @@ module tester;
     `elsif t3
      $readmemh("instmem3.txt",memory_inst);
     `else
-     $readmemh("instmem4.txt",memory_inst);
+     $readmemh("instmem2.txt",memory_inst);
     `endif
   end
   always@(*)
